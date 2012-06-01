@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+  <title>MissionControl</title>
+
+  <!--  Mobile Viewport Fix -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
+
+  <!-- jquery -->
+  <script src="js/jquery-1.7.2.min.js"></script>
+
+</head>
+<body>
+
+<div id="page">
+
+  <header id="branding" role="banner" class="clearfix">
+    <hgroup id="logo">
+        <h1 id="site-title"><span><a href="#" title="MissionControl" rel="home">MissionControl</a></span></h1>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="#" id="projects-bttn">Edit Projects</a></li>
+      </ul>
+    </nav>
+  </header><!-- #branding -->
+
+  <ul id="all-projects" class="clearfix hidden">
+    <li class="project id-3"><a href="#" class="star">&#10029;</a> Another Project <span class="team-count">(1)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-2 starred"><a href="#" class="star">&#10029;</a> Bar <span class="team-count">(3)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-5"><a href="#" class="star">&#10029;</a> Foo <span class="team-count">(2)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-1"><a href="#" class="star">&#10029;</a> Project Foo <span class="team-count">(1)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-7"><a href="#" class="star">&#10029;</a> Pumpernickel <span class="team-count">(1)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-4 starred"><a href="#" class="star">&#10029;</a> Qwerty <span class="team-count">(4)</span> <a href="#" class="delete">&times;</a></li>
+    <li class="project id-6"><a href="#" class="star">&#10029;</a> Woot! <span class="team-count">(1)</span> <a href="#" class="delete">&times;</a></li>
+  </ul>
+
+  <ul id="team">
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Aaron Ogle</h2>
+        <span class="timestamp">Updated 05/30/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-1">Project Foo <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-3">Another Project <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Aaron Sutula</h2>
+        <span class="timestamp">Updated 05/28/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Andrew</h2>
+        <span class="timestamp">Updated 05/29/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Andy C.</h2>
+        <span class="timestamp">Updated 05/30/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-5">Foo <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-6">Woot! <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-7">Pumpernickel <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Anthony</h2>
+        <span class="timestamp">Updated 05/30/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-5">Foo <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Brandon</h2>
+        <span class="timestamp">Updated 05/30/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-4">Qwerty <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Chris Abraham</h2>
+        <span class="timestamp">Updated 05/30/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-5">Foo <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-7">Pumpernickel <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>David E.</h2>
+        <span class="timestamp">Updated 05/31/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="project id-5">Foo <a href="#" class="delete hidden">&times;</a></li>
+        <li class="project id-2 starred"><span class="star">&#10029;</span> Bar <a href="#" class="delete hidden">&times;</a></li>
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+    <li class="teammate clearfix">
+      <hgroup class="teammate-info">
+        <h2>Zozo</h2>
+        <span class="timestamp">Updated 05/31/12</span>
+      </hgroup>
+      <ul class="projects">
+        <li class="add-project hidden">
+          <form>
+            <input type="text" placeholder="New Project&hellip;" />
+          </form>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $(".teammate").hover(
+        function () {
+          $(this).find(".delete").removeClass("hidden");
+          $(this).find(".add-project").removeClass("hidden");
+        }, 
+        function () {
+          $(this).find(".delete").addClass("hidden");
+          if ( $(this).find("input:focus").length ) {
+          } else {
+            $(this).find(".add-project").addClass("hidden");
+          }
+        }
+      );
+
+      $("#projects-bttn").click(function() {
+        $("#all-projects").slideToggle("fast");
+        return false;
+      });
+
+      $(".delete").click(function() {
+        // we'll need a confirm delete dialog here
+        return false;
+      });
+
+    });
+  </script>
+
+</div><!-- #page -->
+
+</body>
+</html>
