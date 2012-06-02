@@ -39,37 +39,71 @@
       </form>
     </header><!-- #branding -->
 
-    <ul id="team">
-      <?php
-
-      $result = $db->query("SELECT person FROM team ORDER BY person");
-      $row = array(); 
-      $i = 0; 
-
-      while($res = $result->fetchArray()){ 
-
-        if(!isset($res['person'])) continue; 
-
-        $row[$i]['person'] = $res['person']; 
-        echo '<li class="teammate clearfix">';
-
-        echo '<header class="teammate-info">';
-        echo '<h2>' . $res['person'] . '</h2>';
-        echo '<span class="timestamp">Updated 05/30/12</span>';
-        echo '</header>';
-
-        echo '</li>';
-
-        $i++; 
-
-      }
-
-    ?>
-    </ul>
+    <?php include 'team-list.php'; ?>
 
   </div><!-- #page -->
 
-  <script src="js/scripts.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $(".teammate").hover(
+        function () {
+          $(this).find(".delete").removeClass("hidden");
+          $(this).find(".add-project").removeClass("hidden");
+        }, 
+        function () {
+          $(this).find(".delete").addClass("hidden");
+          if ( $(this).find("input:focus").length ) {
+          } else {
+            $(this).find(".add-project").addClass("hidden");
+          }
+        }
+      );
+
+      $("#projects-bttn").click(function() {
+        $("#all-projects").slideToggle("fast");
+        return false;
+      });
+
+      $(".delete").click(function() {
+        // we'll need a confirm delete dialog here
+        return false;
+      });
+
+      /* AJAX FORM SUBMIT */
+      $("#add-person").submit(function(e) {
+
+        // stop form from submitting normally
+        e.preventDefault(); 
+
+        // get the input values
+        var $form = $(this),
+            term = $form.find( 'input[name="person"]' ).val(),
+            url = $form.attr( 'action' );
+
+        // send the data & pull in the results
+        $.post( url, { person: term },
+          function( data ) {
+
+              var content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( content );
+
+              // scroll to and hightlight the new person
+              $('html, body').animate({
+                scrollTop: $("h2:contains('" + term + "')").offset().top -200
+              }, 500);
+              $("h2:contains('" + term + "')").parents("li.teammate").css('background-color', "#f9f9f9");
+              
+          }
+        );
+
+        // reset the form
+        this.reset();
+
+      });
+
+    });
+  </script>
 
 </body>
 </html>

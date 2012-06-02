@@ -10,3 +10,5 @@ if (!empty($person)) {
 }
 
 ?>
+
+<?php include 'team-list.php'; ?>
