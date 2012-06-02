@@ -153,7 +153,7 @@ button {width: auto; overflow: visible;}
 
 #page {
   position: relative;
-  padding-top: 4.25em;
+  padding-top: 5em;
 }
 
 #branding {
@@ -183,6 +183,12 @@ button {width: auto; overflow: visible;}
   float: right;
   font-weight: bold;
   margin: 0.75em 0 0;
+}
+
+/* Add Person Form */
+#add-person {
+  float: right;
+  padding: 0 2em;
 }
 
 /* Projects List */
