@@ -296,6 +296,9 @@ ul#team {
   margin: 0 0.5em 0.5em 0;
   padding: 0;
 }
+.add-project form {
+  margin: 0;
+}
 .add-project input {
   color: #777;
   background: #ddd;
@@ -307,6 +310,15 @@ ul#team {
 }
 .add-project input:focus {
   background: #eee;
+}
+.add-project input[type=submit] {
+  color: #999;
+  background: #5e5e5e;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.75em 1em;
+  box-shadow: -1px 1px 2px #333;
+  border: 0;
 }
 
 /* Stars */

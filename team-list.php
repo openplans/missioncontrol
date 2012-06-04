@@ -47,7 +47,6 @@
             <form class="add-project" action="add-project.php" method="post">
               <input type="hidden" name="person_id" value="<?php echo $res['person_id']; ?>" />
               <input type="text" name="project" placeholder="New Project&hellip;"/>
-              <input type="submit" value="Add" />
             </form>
           </li>
         </ul>
