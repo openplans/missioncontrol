@@ -34,10 +34,11 @@
       </nav>
 
       <form id="add-person" action="add-person.php" method="post">
-        <input type="text" name="person" placeholder="New Person&hellip;"/>
-        <input type="submit" value="Add" />
+        <input type="text" name="person" placeholder="Add/Find Person&hellip;"/>
       </form>
     </header><!-- #branding -->
+
+    <?php include 'projects-list.php'; ?>
 
     <?php include 'team-list.php'; ?>
 
@@ -46,12 +47,20 @@
   <script type="text/javascript">
     $(document).ready(function(){
 
-      $(".teammate").hover(
-        function () {
+      // show all projects 
+      $("#projects-bttn").click(function() {
+        $("#all-projects").slideToggle("fast");
+        return false;
+      });
+
+
+      // show form & delete bttns on hover of teammates
+      $(".teammate").live("mouseenter", 
+        function() {
           $(this).find(".delete").removeClass("hidden");
           $(this).find(".add-project").removeClass("hidden");
-        }, 
-        function () {
+        }).live("mouseleave", 
+        function() {
           $(this).find(".delete").addClass("hidden");
           if ( $(this).find("input:focus").length ) {
           } else {
@@ -60,47 +69,63 @@
         }
       );
 
-      $("#projects-bttn").click(function() {
-        $("#all-projects").slideToggle("fast");
-        return false;
-      });
 
       $(".delete").click(function() {
-        // we'll need a confirm delete dialog here
+        // XXX FIXME - we'll need a confirm delete dialog here
         return false;
       });
 
-      /* AJAX FORM SUBMIT */
-      $("#add-person").submit(function(e) {
 
+      /* AJAX FORM SUBMIT: Person */
+      $("#add-person").submit(function(e) {
         // stop form from submitting normally
         e.preventDefault(); 
-
         // get the input values
         var $form = $(this),
-            term = $form.find( 'input[name="person"]' ).val(),
+            person_term = $form.find( 'input[name="person"]' ).val(),
             url = $form.attr( 'action' );
-
         // send the data & pull in the results
-        $.post( url, { person: term },
+        $.post( url, { person: person_term },
           function( data ) {
-
               var content = $( data ).find( '#team' );
               $( "#team-list" ).empty().append( content );
-
-              // scroll to and hightlight the new person
+              // scroll to the new person
               $('html, body').animate({
-                scrollTop: $("h2:contains('" + term + "')").offset().top -200
+                scrollTop: $("h2:contains('" + person_term + "')").offset().top -200
               }, 500);
-              $("h2:contains('" + term + "')").parents("li.teammate").css('background-color', "#f9f9f9");
-              
+              // hightlight the new person
+              // XXX FIXME - make this use the unique person_id to avoid matching multiples
+              $("h2:contains('" + person_term + "')").parents("li.teammate").css('background-color', "#f9f9f9");    
           }
         );
-
         // reset the form
         this.reset();
-
       });
+
+
+      /* AJAX FORM SUBMIT: Project */
+      $( ".add-project" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              project_term = $form.find( 'input[name="project"]' ).val(),
+              person_id = $form.find( 'input[name="person_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { project: project_term, person_id: person_id },
+            function( data ) {
+                var team_content = $( data ).find( '#team' );
+                $( "#team-list" ).empty().append( team_content );
+
+                var projects_content = $( data ).find( '#all-projects' );
+                $( "#projects" ).empty().append( projects_content );
+            }
+          );
+        }
+      );
+
 
     });
   </script>
