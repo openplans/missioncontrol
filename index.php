@@ -57,11 +57,9 @@
       // show form & delete bttns on hover of teammates
       $(".teammate").live("mouseenter", 
         function() {
-          $(this).find(".delete").removeClass("hidden");
           $(this).find(".add-project").removeClass("hidden");
         }).live("mouseleave", 
         function() {
-          $(this).find(".delete").addClass("hidden");
           if ( $(this).find("input:focus").length ) {
           } else {
             $(this).find(".add-project").addClass("hidden");
@@ -70,13 +68,7 @@
       );
 
 
-      $(".delete").click(function() {
-        // XXX FIXME - we'll need a confirm delete dialog here
-        return false;
-      });
-
-
-      /* AJAX FORM SUBMIT: Person */
+      /* AJAX FORM SUBMIT: Add Person */
       $("#add-person").submit(function(e) {
         // stop form from submitting normally
         e.preventDefault(); 
@@ -103,7 +95,7 @@
       });
 
 
-      /* AJAX FORM SUBMIT: Project */
+      /* AJAX FORM SUBMIT: Add Project */
       $( ".add-project" ).live("submit",
         function(e){
           // stop form from submitting normally
@@ -121,6 +113,28 @@
 
                 var projects_content = $( data ).find( '#all-projects' );
                 $( "#projects" ).empty().append( projects_content );
+            }
+          );
+        }
+      );
+
+
+      /* AJAX FORM SUBMIT: Delete Person-Project Link */
+      // XXX FIXME - we'll need a confirm delete dialog here
+      $( ".delete-link" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              person_id = $form.find( 'input[name="person_id"]' ).val(),
+              project_id = $form.find( 'input[name="project_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { person_id: person_id, project_id: project_id },
+            function( data ) {
+                var team_content = $( data ).find( '#team' );
+                $( "#team-list" ).empty().append( team_content );
             }
           );
         }

@@ -37,7 +37,14 @@
 
             $project_row[$i]['project'] = $project_res['project']; 
 
-            ?><li class="project id-<?php echo $project_res['project_id']; ?>"><?php echo $project_res['project']; ?> <a href="#" class="delete hidden">&times;</a></li><?php 
+            ?><li class="project id-<?php echo $project_res['project_id']; ?>">
+                <?php echo $project_res['project']; ?> 
+                <form class="delete-link" action="delete-link.php" method="post">
+                  <input type="hidden" name="person_id" value="<?php echo $res['person_id']; ?>" />
+                  <input type="hidden" name="project_id" value="<?php echo $project_res['project_id']; ?>" />
+                  <input type="submit" class="delete" value="&times;" />
+                </form>
+              </li><?php 
             $i++; 
 
           }
