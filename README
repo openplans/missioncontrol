@@ -6,4 +6,3 @@ TO DO
 + authentication // HTTP with PHP header() function?
 + feature: star projects
 + autocomplete form inputs (to avoid duplicates)
-+ bugfix: highlight new person with unique selector to avoid matching multiples

@@ -82,7 +82,7 @@
               // custom selector for exact matches, because :contains() returns multiples
               $.expr[':'].containsexactly = function(obj, index, meta, stack) 
               {  
-                  return $(obj).text() === meta[3];
+                  return $(obj).text().toLowerCase() === (meta[3]).toLowerCase();
               }; 
               // scroll to & hightlight the new person
               $('html, body').animate({
