@@ -12,3 +12,4 @@ if ( !empty($person_id) && !empty($project_id) ) {
 ?>
 
 <?php include 'team-list.php'; ?>
+<?php include 'projects-list.php'; ?>

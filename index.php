@@ -108,11 +108,11 @@
           // send the data & pull in the results
           $.post( url, { project: project_term, person_id: person_id },
             function( data ) {
-                var team_content = $( data ).find( '#team' );
-                $( "#team-list" ).empty().append( team_content );
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
 
-                var projects_content = $( data ).find( '#all-projects' );
-                $( "#projects" ).empty().append( projects_content );
+              var projects_content = $( data ).find( '#all-projects' );
+              $( "#projects" ).empty().append( projects_content );
             }
           );
         }
@@ -133,8 +133,36 @@
           // send the data & pull in the results
           $.post( url, { person_id: person_id, project_id: project_id },
             function( data ) {
-                var team_content = $( data ).find( '#team' );
-                $( "#team-list" ).empty().append( team_content );
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
+
+              var projects_content = $( data ).find( '#all-projects' );
+              $( "#projects" ).empty().append( projects_content );
+            }
+          );
+        }
+      );
+
+
+      /* AJAX FORM SUBMIT: Delete Person-Project Link */
+      // XXX FIXME - we'll need a confirm delete dialog here
+      $( ".delete-project" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              person_count = $form.find( 'input[name="person_count"]' ).val(),
+              project_id = $form.find( 'input[name="project_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { person_count: person_count, project_id: project_id },
+            function( data ) {
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
+
+              var projects_content = $( data ).find( '#all-projects' );
+              $( "#projects" ).empty().append( projects_content );
             }
           );
         }
