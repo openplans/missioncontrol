@@ -1,3 +1,9 @@
 SETUP
-1) create db/ with write permission
-2) load install.php
+1) create directory db/ with read/write/execute permissions
+2) load install.php in your browser
+
+TO DO
++ authentication // HTTP with PHP header() function?
++ feature: delete person
++ feature: star projects
++ autocomplete form inputs (to avoid duplicates)
