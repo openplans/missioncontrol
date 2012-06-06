@@ -14,7 +14,19 @@
       ?>
       <li class="teammate clearfix" id="person-<?php echo $res['person_id']; ?>">
         <header class="teammate-info">
-          <h2><?php echo $res['person']; ?></h2>
+          <h2><?php echo $res['person']; ?><?php
+            $the_person_id = $res['person_id'];
+            $the_person_rows = $db->query("SELECT count(*) FROM links WHERE person_id = '$the_person_id'");
+            $the_person_row = $the_person_rows->fetchArray();
+            $numRows = $the_person_row['count(*)'];
+            if ( $numRows == "0" ) {
+          ?><form class="delete-person" action="delete-person.php" method="post">
+              <input type="hidden" name="project_count" value="<?php echo $numRows; ?>" />
+              <input type="hidden" name="person_id" value="<?php echo $the_person_id; ?>" />
+              <input type="submit" class="delete" value="&times;" />
+            </form><?php 
+            }
+          ?></h2>
           <span class="timestamp">Updated 05/30/12</span>
         </header>
         <ul class="projects">

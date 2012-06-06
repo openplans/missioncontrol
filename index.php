@@ -34,9 +34,9 @@
       <form id="add-person" action="add-person.php" method="post">
         <input type="text" name="person" placeholder="Add/Find Person&hellip;"/>
       </form>
-    </header><!-- #branding -->
 
-    <?php include 'projects-list.php'; ?>
+      <?php include 'projects-list.php'; ?>
+    </header><!-- #branding -->
 
     <?php include 'team-list.php'; ?>
 
@@ -84,7 +84,6 @@
                 scrollTop: $("h2:contains('" + person_term + "')").offset().top -200
               }, 500);
               // hightlight the new person
-              // XXX FIXME - make this use the unique person_id to avoid matching multiples
               $("h2:contains('" + person_term + "')").parents("li.teammate").css('background-color', "#f9f9f9");    
           }
         );
@@ -118,7 +117,6 @@
 
 
       /* AJAX FORM SUBMIT: Delete Person-Project Link */
-      // XXX FIXME - we'll need a confirm delete dialog here
       $( ".delete-link" ).live("submit",
         function(e){
           // stop form from submitting normally
@@ -142,8 +140,7 @@
       );
 
 
-      /* AJAX FORM SUBMIT: Delete Person-Project Link */
-      // XXX FIXME - we'll need a confirm delete dialog here
+      /* AJAX FORM SUBMIT: Delete Project */
       $( ".delete-project" ).live("submit",
         function(e){
           // stop form from submitting normally
@@ -161,6 +158,27 @@
 
               var projects_content = $( data ).find( '#all-projects' );
               $( "#projects" ).empty().append( projects_content );
+            }
+          );
+        }
+      );
+
+
+      /* AJAX FORM SUBMIT: Delete Person */
+      $( ".delete-person" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              project_count = $form.find( 'input[name="project_count"]' ).val(),
+              person_id = $form.find( 'input[name="person_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { project_count: project_count, person_id: person_id },
+            function( data ) {
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
             }
           );
         }

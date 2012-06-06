@@ -158,20 +158,13 @@ button {width: auto; overflow: visible;}
 
 #branding {
   background: #555;
-  padding: 1em 2em 0;
+  padding: 15px 2em 0;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 100;
   box-shadow: 0 0 4px #555;
-}
-#branding a {
-  color: lightBlue;
-  text-decoration: none;
-}
-#branding a:hover {
-  color: powderBlue;
 }
 #site-title {
   float: left;
@@ -228,17 +221,18 @@ button {width: auto; overflow: visible;}
 
 /* Projects List */
 ul#all-projects {
-  margin: 0 0 -1em;
-  padding: 1em 2em 1.75em;
+  margin: 0;
+  padding: 0.5em 0 0.75em;
   font-weight: bold;
   list-style: none;
   background: #555;
   box-shadow: 0 0 4px #555;
-  position: fixed;
-  top: 4.75em;
+/*  position: fixed;
+  top: 100px;
   right: 0;
   left: 0;
-  z-index: 200;
+  z-index: 200;*/
+  clear: both;
 }
 .team-count {
   font-weight: normal;
@@ -289,6 +283,23 @@ ul#team {
   padding: 0.75em 2.5em 0.75em 1em;
   position: relative;
 }
+.delete-person {
+  display: inline;
+}
+.delete-person .delete {
+  background: transparent;
+  color: LightSalmon;
+  font-size: 1em;
+  text-decoration: none;
+  border: 0;
+  padding: 0 0.2em;
+  margin-top: -0.25em;
+}
+.delete-person .delete:hover {
+  color: Salmon;
+  font-weight: bold;
+}
+
 .project .delete-link,
 .project .delete-project {
   position: absolute;
