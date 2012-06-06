@@ -225,8 +225,8 @@ button {width: auto; overflow: visible;}
   clear: both;
 }
 ul#all-projects {
-  margin: 0 0 1em 0;
-  padding: 0.5em 0 0;
+  margin: 0;
+  padding: 0.5em 0 1em;
   font-weight: bold;
   list-style: none;
   max-height: 400px;

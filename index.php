@@ -47,7 +47,13 @@
 
       // show all projects 
       $("#projects-bttn").click(function() {
-        $("#projects").slideToggle("fast");
+        $("#projects").slideToggle("fast", function() {
+          var $bumpDown = $("#all-projects").height();
+          $('#team').animate({
+            marginTop: $bumpDown + "px"
+          }, 200, function() {
+          });
+        });
         return false;
       });
 
