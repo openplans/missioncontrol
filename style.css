@@ -158,7 +158,7 @@ button {width: auto; overflow: visible;}
 
 #branding {
   background: #555;
-  padding: 2em 2em 1em;
+  padding: 1em 2em 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -172,23 +172,35 @@ button {width: auto; overflow: visible;}
 }
 #branding a:hover {
   color: powderBlue;
-  text-decoration: underline;
-}
-#logo {
-  float: left;
 }
 #site-title {
+  float: left;
+  color: #eee;
+  background: url(images/opmssncrtl.png) 0 0 no-repeat scroll;
+  width: 297px;
+  height: 56px;
+  font-size: 1em;
+  text-indent: -9999px;
+  margin: 0 1em 1em 0;
 }
-#branding nav {
+/* Header Menu */
+#menu {
   float: right;
   font-weight: bold;
-  margin: 0.75em 0 0;
+  margin: 1.5em 0 1em 1em;
+}
+#menu a {
+  color: #bbb;
+}
+#menu a:hover {
+  color: powderBlue;
 }
 
 /* Add Person Form */
 #add-person {
   float: right;
-  padding: 0 2em;
+  padding: 0;
+  margin: 0.75em 0 1em 1em;
 }
 #add-person input[type=text] {
   color: #bbb;

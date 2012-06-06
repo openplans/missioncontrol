@@ -3,7 +3,7 @@
 <html dir="ltr" lang="en-US">
 <head>
 
-  <title>OpenPlans MissionControl</title>
+  <title>OpenPlans MissionCTRL</title>
 
   <meta charset="utf-8">
   <meta name="description" content="OpenPlans MissionControl">
@@ -23,11 +23,9 @@
   <div id="page">
 
     <header id="branding" role="banner" class="clearfix">
-      <hgroup id="logo">
-          <h1 id="site-title"><span><a href="#" title="MissionControl" rel="home">MissionControl</a></span></h1>
-      </hgroup>
+      <h1 id="site-title"><span>OpenPlans MissionCTRL</span></h1>
 
-      <nav>
+      <nav id="menu">
         <ul>
           <li><a href="#" id="projects-bttn">Edit Projects</a></li>
         </ul>
