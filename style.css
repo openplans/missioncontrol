@@ -184,6 +184,7 @@ button {width: auto; overflow: visible;}
 }
 #menu a {
   color: #bbb;
+  text-decoration: none;
 }
 #menu a:hover {
   color: powderBlue;
@@ -221,18 +222,15 @@ button {width: auto; overflow: visible;}
 
 /* Projects List */
 ul#all-projects {
-  margin: 0;
-  padding: 0.5em 0 0.75em;
+  margin: 0 0 1em 0;
+  padding: 0.5em 0 0;
   font-weight: bold;
   list-style: none;
   background: #555;
   box-shadow: 0 0 4px #555;
-/*  position: fixed;
-  top: 100px;
-  right: 0;
-  left: 0;
-  z-index: 200;*/
   clear: both;
+  max-height: 400px;
+  overflow: auto;
 }
 .team-count {
   font-weight: normal;

@@ -14,7 +14,7 @@
       ?>
       <li class="teammate clearfix" id="person-<?php echo $res['person_id']; ?>">
         <header class="teammate-info">
-          <h2><?php echo $res['person']; ?><?php
+          <h2><span><?php echo $res['person']; ?></span><?php
             $the_person_id = $res['person_id'];
             $the_person_rows = $db->query("SELECT count(*) FROM links WHERE person_id = '$the_person_id'");
             $the_person_row = $the_person_rows->fetchArray();

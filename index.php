@@ -79,12 +79,16 @@
           function( data ) {
               var content = $( data ).find( '#team' );
               $( "#team-list" ).empty().append( content );
-              // scroll to the new person
+              // custom selector for exact matches, because :contains() returns multiples
+              $.expr[':'].containsexactly = function(obj, index, meta, stack) 
+              {  
+                  return $(obj).text() === meta[3];
+              }; 
+              // scroll to & hightlight the new person
               $('html, body').animate({
-                scrollTop: $("h2:contains('" + person_term + "')").offset().top -200
+                scrollTop: $("h2 span:containsexactly('" + person_term + "')").offset().top -200
               }, 500);
-              // hightlight the new person
-              $("h2:contains('" + person_term + "')").parents("li.teammate").css('background-color', "#f9f9f9");    
+              $("h2 span:containsexactly('" + person_term + "')").parents("li.teammate").css('background-color', "#f9f9f9");    
           }
         );
         // reset the form
