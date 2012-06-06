@@ -4,5 +4,4 @@ SETUP
 
 TO DO
 + authentication // HTTP with PHP header() function?
-+ feature: star projects
 + autocomplete form inputs (to avoid duplicates)

@@ -49,7 +49,8 @@
 
             $project_row[$i]['project'] = $project_res['project']; 
 
-            ?><li class="project id-<?php echo $project_res['project_id']; ?>">
+            ?><li class="project id-<?php echo $project_res['project_id']; ?><?php if ( $project_res['starred'] == '1') { echo " starred"; } ?>">
+                <?php if ( $project_res['starred'] == '1') { echo '<span class="star">&#10029;</span>'; } ?>
                 <?php echo $project_res['project']; ?> 
                 <form class="delete-link" action="delete-link.php" method="post">
                   <input type="hidden" name="person_id" value="<?php echo $res['person_id']; ?>" />

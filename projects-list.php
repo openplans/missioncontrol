@@ -1,5 +1,5 @@
-<div id="projects">
-<ul id="all-projects" class="clearfix hidden">
+<div id="projects" class="clearfix hidden">
+<ul id="all-projects" class="clearfix">
     <?php
 
     $result = $db->query("SELECT * FROM projects ORDER BY project");
@@ -12,8 +12,12 @@
 
       $row[$i]['project'] = $res['project']; 
 
-      ?><li class="project id-<?php echo $res['project_id']; ?>">
-          <a href="#" class="star">&#10029;</a> 
+      ?><li class="project id-<?php echo $res['project_id']; ?><?php if ( $res['starred'] == '1') { echo " starred"; } ?>">
+          <form class="star-project" action="star-project.php" method="post">
+            <input type="hidden" name="project_id" value="<?php echo $res['project_id']; ?>" />
+            <input type="hidden" name="starred" value="<?php echo $res['starred']; ?>" />
+            <input type="submit" class="star" value="&#10029;" />
+          </form>
           <?php echo $res['project']; ?> 
           <?php
           $the_project_id = $res['project_id'];

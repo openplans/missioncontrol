@@ -47,7 +47,7 @@
 
       // show all projects 
       $("#projects-bttn").click(function() {
-        $("#all-projects").slideToggle("fast");
+        $("#projects").slideToggle("fast");
         return false;
       });
 
@@ -183,6 +183,30 @@
             function( data ) {
               var team_content = $( data ).find( '#team' );
               $( "#team-list" ).empty().append( team_content );
+            }
+          );
+        }
+      );
+
+
+      /* AJAX FORM SUBMIT: Star Project */
+      $( ".star-project" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              starred = $form.find( 'input[name="starred"]' ).val(),
+              project_id = $form.find( 'input[name="project_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { starred: starred, project_id: project_id },
+            function( data ) {
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
+
+              var projects_content = $( data ).find( '#all-projects' );
+              $( "#projects" ).empty().append( projects_content );
             }
           );
         }

@@ -221,14 +221,14 @@ button {width: auto; overflow: visible;}
 }
 
 /* Projects List */
+#projects {
+  clear: both;
+}
 ul#all-projects {
   margin: 0 0 1em 0;
   padding: 0.5em 0 0;
   font-weight: bold;
   list-style: none;
-  background: #555;
-  box-shadow: 0 0 4px #555;
-  clear: both;
   max-height: 400px;
   overflow: auto;
 }
@@ -354,14 +354,22 @@ ul#team {
 }
 
 /* Stars */
-a.star {
+.star-project {
+  display: inline;
+}
+input.star {
   color: #999;
   text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+  border: 0;
+  padding: 0 0.2em;
+  margin-top: -0.5em;
 }
-.starred a.star {
+.starred input.star {
   color: #fff;
 }
-a.star:hover {
+input.star:hover {
   color: powderBlue;
 }
 .starred {
