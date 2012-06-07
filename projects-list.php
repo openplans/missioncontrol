@@ -18,7 +18,7 @@
             <input type="hidden" name="starred" value="<?php echo $res['starred']; ?>" />
             <input type="submit" class="star" value="&#10029;" />
           </form>
-          <?php echo $res['project']; ?> 
+          <span class="project-name"><?php echo $res['project']; ?></span> 
           <?php
           $the_project_id = $res['project_id'];
           $rows = $db->query("SELECT count(*) FROM links WHERE project_id = '$the_project_id'");

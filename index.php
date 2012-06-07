@@ -16,6 +16,7 @@
 
   <!-- jquery -->
   <script src="js/jquery-1.7.2.min.js"></script>
+  <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
 
 </head>
 <body>
@@ -70,6 +71,28 @@
           }
         }
       );
+
+
+      // Autocomplete
+  		var availablePeople = [];
+      $("h2").each(function() {
+        var person = $(this);
+        availablePeople.push(person.text());
+      });
+  		$( "#add-person input[type=text]" ).autocomplete({
+  			source: availablePeople
+  		});
+
+      $(".add-project input[type=text]").live("click", function(){
+    		var availableProjects = [];
+        $("span.project-name").each(function() {
+          var person = $(this);
+          availableProjects.push(person.text());
+        });
+        $(this).autocomplete({
+    			source: availableProjects
+    		});
+      });
 
 
       /* AJAX FORM SUBMIT: Add Person */
