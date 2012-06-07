@@ -33,7 +33,8 @@
       </nav>
 
       <form id="add-person" action="add-person.php" method="post">
-        <input type="text" name="person" placeholder="Add/Find Person&hellip;"/>
+        <input type="checkbox" name="add_person" value="add_person" /> Add
+        <input type="text" name="person" placeholder="Find Person&hellip;" />
       </form>
 
       <?php include 'projects-list.php'; ?>
@@ -102,9 +103,10 @@
         // get the input values
         var $form = $(this),
             person_term = $form.find( 'input[name="person"]' ).val(),
-            url = $form.attr( 'action' );
+            url = $form.attr( 'action' ),
+            add_person = $('input[name="add_person"]:checked').val();;
         // send the data & pull in the results
-        $.post( url, { person: person_term },
+        $.post( url, { person: person_term, add: add_person },
           function( data ) {
               var content = $( data ).find( '#team' );
               $( "#team-list" ).empty().append( content );
