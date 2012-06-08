@@ -219,6 +219,27 @@ button {width: auto; overflow: visible;}
 #add-person input[type=submit]:hover {
   color: #bbb;
 }
+input[name="add_person"] {
+  display: none;
+}
+#add_person_label {
+  display: inline-block;
+  font-size: 1.25em;
+  margin: 0 0.25em;
+  padding: 0 0.4em 0.2em;
+  position: relative;
+  top: 0.2em;
+  background: #777;
+  border-radius: 3px;
+}
+#add_person_label:hover,
+#add_person_label.checked {
+  background: SteelBlue;  
+  color: #eee;
+}
+#add_person_label span.bttn {
+  font-weight: bold;
+}
 
 /* Projects List */
 #projects {

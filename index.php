@@ -33,8 +33,8 @@
       </nav>
 
       <form id="add-person" action="add-person.php" method="post">
-        <input type="checkbox" name="add_person" value="add_person" /> Add
-        <input type="text" name="person" placeholder="Find Person&hellip;" />
+        <input type="checkbox" name="add_person" value="add_person" id="add_person" /> <label for="add_person" id="add_person_label"><span class="bttn">+</span><span class="hidden">Add</span></label>
+        <input type="text" name="person" placeholder="Find Person..." />
       </form>
 
       <?php include 'projects-list.php'; ?>
@@ -74,15 +74,19 @@
       );
 
 
-      // Autocomplete
+      /* Autocomplete */
   		var availablePeople = [];
       $("h2").each(function() {
         var person = $(this);
         availablePeople.push(person.text());
       });
   		$( "#add-person input[type=text]" ).autocomplete({
-  			source: availablePeople
-  		});
+          source: availablePeople,
+          select: function(event, ui) { 
+              $("#add-person input[type=text]").val(ui.item.label);
+              $("#add-person").submit(); 
+          }
+      });
 
       $(".add-project input[type=text]").live("click", function(){
     		var availableProjects = [];
@@ -93,6 +97,20 @@
         $(this).autocomplete({
     			source: availableProjects
     		});
+      });
+
+
+      /* Style #add_person_label */
+      $('label#add_person_label').click(function() {
+        $(this).toggleClass('checked');
+
+        if ($('input[name="person"]').attr('placeholder') == "Find Person...") {
+           $('input[name="person"]').attr('placeholder', 'Add Person...')
+        }
+        else {
+          $('input[name="person"]').attr('placeholder', 'Find Person...')
+        }
+
       });
 
 
@@ -124,6 +142,8 @@
         );
         // reset the form
         this.reset();
+        $('label#add_person_label').removeClass('checked');
+        $('input[name="person"]').attr('placeholder', 'Find Person...')
       });
 
 
