@@ -11,8 +11,13 @@
       if(!isset($res['person'])) continue; 
 
       $row[$i]['person'] = $res['person']; 
+
+      date_default_timezone_set('America/New_York');
+      $timestamp=strtotime($res['updated']);
+      $interval = time()-$timestamp;
+
       ?>
-      <li class="teammate clearfix" id="person-<?php echo $res['person_id']; ?>">
+      <li class="teammate clearfix<?php if ( round(abs($interval)/(60*60*24)) >= '7' ) { echo " old"; } ?>" id="person-<?php echo $res['person_id']; ?>">
         <header class="teammate-info">
           <h2><span><?php echo $res['person']; ?></span><?php
             $the_person_id = $res['person_id'];

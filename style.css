@@ -278,11 +278,18 @@ ul#team {
   margin-bottom: 1em;
   box-shadow: -1px 1px 2px #ccc;
 }
+.teammate.old {
+  box-shadow: -1px 1px 2px #ccc, inset 0 0 3em rgba(255,0,0,0.25);
+  border: 1px solid rgba(255,0,0,0.3);
+}
 .teammate-info {
   float: left;
   margin: -1em 1em -1em 0;
   padding: 1em 1em 1em 0;
   border-right: 1px solid #ccc;
+}
+.teammate.old .teammate-info {
+  border-right: 1px solid rgba(255,0,0,0.3);
 }
 .timestamp {
   font-size: 85%;
