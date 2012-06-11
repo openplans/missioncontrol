@@ -95,7 +95,11 @@
           availableProjects.push(person.text());
         });
         $(this).autocomplete({
-    			source: availableProjects
+    			source: availableProjects,
+          select: function(event, ui) { 
+              $(this).val(ui.item.label);
+              $(this).submit(); 
+          }
     		});
       });
 
