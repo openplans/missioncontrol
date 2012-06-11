@@ -2,7 +2,7 @@
   <ul id="team">
     <?php
 
-    $result = $db->query("SELECT person_id, person FROM team ORDER BY person");
+    $result = $db->query("SELECT * FROM team ORDER BY person");
     $row = array(); 
     $i = 0; 
 
@@ -27,7 +27,11 @@
             </form><?php 
             }
           ?></h2>
-          <span class="timestamp">Updated 05/30/12</span>
+          <span class="timestamp"><?php 
+            if ( $res['updated'] != NULL ) { 
+              echo $res['updated']; 
+            } 
+          ?>&nbsp;</span>
         </header>
         <ul class="projects">
           
