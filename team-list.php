@@ -19,7 +19,7 @@
       ?>
       <li class="teammate clearfix<?php if ( round(abs($interval)/(60*60*24)) >= '7' ) { echo " old"; } ?>" id="person-<?php echo $res['person_id']; ?>">
         <header class="teammate-info">
-          <h2><span><?php echo $res['person']; ?></span><?php
+          <h2><span><?php echo $res['person']; ?><?php if ( round(abs($interval)/(60*60*24)) >= '10' ) { echo "zzz&hellip;"; } ?></span><?php
             $the_person_id = $res['person_id'];
             $the_person_rows = $db->query("SELECT count(*) FROM links WHERE person_id = '$the_person_id'");
             $the_person_row = $the_person_rows->fetchArray();
