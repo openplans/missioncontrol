@@ -76,7 +76,7 @@
 
       /* Autocomplete */
   		var availablePeople = [];
-      $("h2").each(function() {
+      $("h2 span").each(function() {
         var person = $(this);
         availablePeople.push(person.text());
       });
