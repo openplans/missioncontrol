@@ -4,3 +4,8 @@ SETUP
 
 TO DO
 + authentication // HTTP with PHP header() function?
+
+IDEAS & FEATURE REQUESTS
++ irc bot integration
++ stet function to update timestamp 
++ optional link to learn more about a project
