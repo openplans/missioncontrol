@@ -33,7 +33,8 @@
       </nav>
 
       <form id="add-person" action="add-person.php" method="post">
-        <input type="checkbox" name="add_person" value="add_person" id="add_person" /> <label for="add_person" id="add_person_label"><span class="bttn">+</span><span class="hidden">Add</span></label>
+        <input id="person-add" type="radio" name="add_v_search" value="add_person" /> <label class="add_v_search" for="person-add" id="add_person_label"><span class="bttn add">+</span><span class="hidden">Add</span></label>
+        <input id="person-search" type="radio" name="add_v_search" value="0" checked /> <label class="add_v_search checked" for="person-search" id="search_person_label"><span class="bttn search">?</span><span class="hidden">Find</span></label>
         <input type="text" name="person" placeholder="Find Person..." />
       </form>
 
@@ -104,17 +105,16 @@
       });
 
 
-      /* Style #add_person_label */
-      $('label#add_person_label').click(function() {
-        $(this).toggleClass('checked');
-
-        if ($('input[name="person"]').attr('placeholder') == "Find Person...") {
-           $('input[name="person"]').attr('placeholder', 'Add Person...')
-        }
-        else {
-          $('input[name="person"]').attr('placeholder', 'Find Person...')
-        }
-
+      /* style add or search radio buttons */
+      $('#add_person_label').click(function() {
+        $('#search_person_label').removeClass('checked');
+        $(this).addClass('checked');
+        $('input[name="person"]').attr('placeholder', 'Add Person...')
+      });
+      $('#search_person_label').click(function() {
+        $('#add_person_label').removeClass('checked');
+        $(this).addClass('checked');
+        $('input[name="person"]').attr('placeholder', 'Find Person...')
       });
 
 
@@ -126,7 +126,7 @@
         var $form = $(this),
             person_term = $form.find( 'input[name="person"]' ).val(),
             url = $form.attr( 'action' ),
-            add_person = $('input[name="add_person"]:checked').val();;
+            add_person = $('input:radio[name="add_v_search"]:checked').val();;
         // send the data & pull in the results
         $.post( url, { person: person_term, add: add_person },
           function( data ) {
@@ -146,7 +146,8 @@
         );
         // reset the form
         this.reset();
-        $('label#add_person_label').removeClass('checked');
+        $('#add_person_label').removeClass('checked');
+        $('#search_person_label').addClass('checked');
         $('input[name="person"]').attr('placeholder', 'Find Person...')
       });
 

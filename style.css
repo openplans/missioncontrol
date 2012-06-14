@@ -219,26 +219,32 @@ button {width: auto; overflow: visible;}
 #add-person input[type=submit]:hover {
   color: #bbb;
 }
-input[name="add_person"] {
+input[name="add_v_search"] {
   display: none;
 }
-#add_person_label {
+label.add_v_search {
   display: inline-block;
   font-size: 1.25em;
-  margin: 0 0.25em;
-  padding: 0 0.4em 0.2em;
+  margin: 0;
+  padding: 0 0.45em 0.2em;
   position: relative;
   top: 0.2em;
   background: #777;
   border-radius: 3px;
 }
-#add_person_label:hover,
-#add_person_label.checked {
+label.add_v_search:hover,
+label.add_v_search.checked {
   background: SteelBlue;  
   color: #eee;
 }
-#add_person_label span.bttn {
+label.add_v_search span.bttn {
   font-weight: bold;
+}
+#search_person_label span.bttn {
+  font-size: 0.8em;
+  position: relative;
+  top: 0;
+  padding: 0 0.1em;
 }
 
 /* Projects List */
