@@ -4,6 +4,7 @@ SETUP
 
 TO DO
 + authentication // HTTP with PHP header() function?
++ add search button that's selected by default and toggles plus button
 
 IDEAS & FEATURE REQUESTS
 + irc bot integration
