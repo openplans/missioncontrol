@@ -17,10 +17,10 @@
       $interval = time()-$timestamp;
 
       ?>
-      <li class="teammate clearfix<?php if ( round(abs($interval)/(60*60*24)) >= '7' ) { echo " old"; } ?>" id="person-<?php echo $res['person_id']; ?>">
+      <li class="teammate clearfix<?php if ( round(abs($interval)/(60*60*24)) >= '8' ) { echo " old"; } if ( round(abs($interval)/(60*60*24)) >= '11' ) { echo " really-old"; } ?>" id="person-<?php echo $res['person_id']; ?>">
         <header class="teammate-info">
           <h2><span><?php echo $res['person']; ?></span><?php 
-            if ( round(abs($interval)/(60*60*24)) >= '10' ) { 
+            if ( round(abs($interval)/(60*60*24)) >= '14' ) { 
               echo "zzz&hellip;"; 
             }
             $the_person_id = $res['person_id'];
@@ -37,7 +37,11 @@
           ?></h2>
           <span class="timestamp"><?php 
             if ( $res['updated'] != NULL ) { 
-              echo $res['updated']; 
+              echo $res['updated'];
+              ?><form class="stet" action="stet.php" method="post">
+                  <input type="hidden" name="person_id" value="<?php echo $the_person_id; ?>" />
+                  <input type="image" class="stet" src="images/arrow-repeat.png" alt="Refresh Timestamp">
+                </form><?php
             } 
           ?>&nbsp;</span>
         </header>

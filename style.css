@@ -287,6 +287,10 @@ ul#team {
 .teammate.old {
   box-shadow: -1px 1px 2px #ccc, inset 0 0 3em rgba(255,0,0,0.25);
   border: 1px solid rgba(255,0,0,0.3);
+}
+.teammate.really-old {
+  box-shadow: -1px 1px 2px #ccc, inset 0 0 3em rgba(255,0,0,0.5);
+  border: 1px solid rgba(255,0,0,1);
   background-image: url(images/sadface.png);
   background-position: center center;
   background-repeat: repeat;
@@ -304,6 +308,17 @@ ul#team {
 .timestamp {
   font-size: 85%;
   color: #777;
+  white-space: nowrap;
+}
+form.stet {
+  display: inline;
+}
+input.stet {
+  visibility: hidden;
+  vertical-align: text-bottom;
+}
+.timestamp:hover input.stet {
+  visibility: visible;
 }
 .projects {
   display: inline;

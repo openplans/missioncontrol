@@ -269,6 +269,26 @@
       );
 
 
+      /* AJAX FORM SUBMIT: Stet Timestamp */
+      $( ".stet" ).live("submit",
+        function(e){
+          // stop form from submitting normally
+          e.preventDefault(); 
+          // get the input values
+          var $form = $(this),
+              person_id = $form.find( 'input[name="person_id"]' ).val(),
+              url = $form.attr( 'action' );
+          // send the data & pull in the results
+          $.post( url, { person_id: person_id },
+            function( data ) {
+              var team_content = $( data ).find( '#team' );
+              $( "#team-list" ).empty().append( team_content );
+            }
+          );
+        }
+      );
+
+
     });
   </script>
 
