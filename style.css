@@ -146,7 +146,7 @@ button {width: auto; overflow: visible;}
 .clearfix { zoom: 1; }
 
 .hidden { display: none; }
-
+.invisible { visibility: hidden; }
 
 /* =Chrome
 -------------------------------------------------------------- */

@@ -80,7 +80,7 @@
 
           ?>
           <li class="add-project">
-            <span class="add-project-bttn hidden">+<span class="hidden">Add Project:</span></span>
+            <span class="add-project-bttn invisible">+<span class="hidden">Add Project:</span></span>
             <form class="add-project hidden" action="add-project.php" method="post">
               <input type="hidden" name="person_id" value="<?php echo $res['person_id']; ?>" />
               <input type="text" name="project" placeholder="Add Project&hellip;"/>

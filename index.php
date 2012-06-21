@@ -66,15 +66,13 @@
         function() {
           if ( $(this).find("input:focus").length ) {
           } else {
-            $(this).find(".add-project-bttn").removeClass("hidden");
-            $(this).find(".add-project form").addClass("hidden");
+            $(this).find(".add-project-bttn").removeClass("invisible");
           }
         }).live("mouseleave", 
         function() {
           if ( $(this).find("input:focus").length ) {
           } else {
-            $(this).find(".add-project-bttn").addClass("hidden");
-            $(this).find(".add-project form").addClass("hidden");
+            $(this).find(".add-project-bttn").addClass("invisible");
           }
         }
       );
@@ -86,7 +84,7 @@
         $(this).siblings(".add-project form").removeClass("hidden");
         $(this).parent().find(".add-project input[type=text]").focus();
         // hide other people's forms
-        $(".teammate .add-project-bttn").not(this).addClass("hidden");
+        $(".teammate .add-project-bttn").not(this).removeClass("hidden").addClass("invisible");
         $(".teammate .add-project-bttn").not(this).siblings(".add-project form").addClass("hidden");
       });
 
