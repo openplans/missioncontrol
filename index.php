@@ -61,18 +61,34 @@
       });
 
 
-      // show form & delete bttns on hover of teammates
+      // show add/delete bttns on hover of teammates
       $(".teammate").live("mouseenter", 
         function() {
-          $(this).find(".add-project").removeClass("hidden");
+          if ( $(this).find("input:focus").length ) {
+          } else {
+            $(this).find(".add-project-bttn").removeClass("hidden");
+            $(this).find(".add-project form").addClass("hidden");
+          }
         }).live("mouseleave", 
         function() {
           if ( $(this).find("input:focus").length ) {
           } else {
-            $(this).find(".add-project").addClass("hidden");
+            $(this).find(".add-project-bttn").addClass("hidden");
+            $(this).find(".add-project form").addClass("hidden");
           }
         }
       );
+
+
+      // show add-project form on add-project-bttn click
+      $(".add-project-bttn").live("click", function(){
+        $(this).addClass("hidden");
+        $(this).siblings(".add-project form").removeClass("hidden");
+        $(this).parent().find(".add-project input[type=text]").focus();
+        // hide other people's forms
+        $(".teammate .add-project-bttn").not(this).addClass("hidden");
+        $(".teammate .add-project-bttn").not(this).siblings(".add-project form").addClass("hidden");
+      });
 
 
       /* Autocomplete */

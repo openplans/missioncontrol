@@ -375,6 +375,23 @@ input.stet {
   color: LightSalmon;
   font-weight: bold;
 }
+.add-project-bttn {
+  float: left;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0.25em 0.5em 0 0;
+  padding: 0 0.45em 0.25em;
+  position: relative;
+  top: 0.2em;
+  color: #fff;
+  background: #bbb;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.add-project-bttn:hover {
+  background: SteelBlue;  
+  color: #eee;
+}
 .add-project {
   float: left;
   border-radius: 3px;
