@@ -103,11 +103,11 @@
           }
       });
 
-      $(".add-project input[type=text]").live("click", function(){
+      $(".add-project input[type=text]").live("focus", function(){
     		var availableProjects = [];
         $("span.project-name").each(function() {
-          var person = $(this);
-          availableProjects.push(person.text());
+          var prjct = $(this);
+          availableProjects.push(prjct.text());
         });
         $(this).autocomplete({
     			source: availableProjects,
